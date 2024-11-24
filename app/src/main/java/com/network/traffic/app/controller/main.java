@@ -1,6 +1,7 @@
 package com.network.traffic.app.controller;
 
 import com.network.traffic.app.service.File;
+import com.network.traffic.app.service.NetworkTrafficService;
 
 import java.util.Arrays;
 
@@ -11,7 +12,8 @@ public class main {
 
         myFile.createFile();
         myFile.writeFile();
-        int[] myarr = myFile.readFile();
-        System.out.println("In main class: " + Arrays.toString(myarr));
+
+        NetworkTrafficService networkTrafficService = new NetworkTrafficService(myFile);
+        networkTrafficService.handler(1, 3);
     }
 }
